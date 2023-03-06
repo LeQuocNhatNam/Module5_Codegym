@@ -3,16 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './component/header/header.component';
-import { FooterComponent } from './component/footer/footer.component';
-import { FacilityListComponent } from './component/facility/facility-list/facility-list.component';
+import { NamCardComponent } from './name-card/name-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    FacilityListComponent
+    NamCardComponent
   ],
   imports: [
     BrowserModule,
