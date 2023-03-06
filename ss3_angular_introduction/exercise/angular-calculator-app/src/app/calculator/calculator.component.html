@@ -1,0 +1,12 @@
+<h2>Calculator</h2>
+<input type="number" placeholder="first operator" [(ngModel)]="num1">
+<input type="number" placeholder="second operator" [(ngModel)]="num2">
+
+<br>
+<br>
+<button (click)="add()" type="button">+</button>
+<button (click)="subtract()" type="button">-</button>
+<button (click)="multiply()" type="button">X</button>
+<button (click)="divide()" type="button">/</button>
+
+<h3>Result is {{result}}</h3>
