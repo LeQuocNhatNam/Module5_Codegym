@@ -1,0 +1,54 @@
+<h2 style="text-align: center;">Customer List</h2>
+<table class="table table-stripped">
+  <tr>
+    <th>#</th>
+    <th>Name</th>
+    <th>Date of Birth</th>
+    <th>Gender</th>
+    <th>Email</th>
+    <th>Phone Number</th>
+    <th>Customer type</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  <tr *ngFor="let c of customers, index as i">
+    <td>{{i + 1}}</td>
+    <td>{{c.name}}</td>
+    <td>{{c.dateOfBirth}}</td>
+    <td>{{c.gender}}</td>
+    <td>{{c.email}}</td>
+    <td>{{c.phoneNumber}}</td>
+    <td>{{c.customerType.name}}</td>
+    <td>
+      <a [routerLink] class="btn btn-warning">Edit</a>
+    </td>
+    <td>
+      <!-- Button trigger modal -->
+      <button type="button" class="text-primary btn btn-danger btn-lg" data-toggle="modal" data-target="#modelId">
+        Delete
+      </button>
+    </td>
+  </tr>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Body
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
