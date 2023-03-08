@@ -10,6 +10,8 @@ import { FacilityCreateComponent } from './component/facility/facility-create/fa
 import { FacilityEditComponent } from './component/facility/facility-edit/facility-edit.component';
 import { CustomerListComponent } from './component/customer/customer-list/customer-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CustomerCreateComponent } from './component/customer/customer-create/customer-create.component';
+import { CustomerEditComponent } from './component/customer/customer-edit/customer-edit.component';
 
 @NgModule({
 
@@ -20,7 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
     FacilityListComponent,
     FacilityCreateComponent,
     FacilityEditComponent,
-    CustomerListComponent
+    CustomerListComponent,
+    CustomerCreateComponent,
+    CustomerEditComponent
   ],
   imports: [
     BrowserModule,
