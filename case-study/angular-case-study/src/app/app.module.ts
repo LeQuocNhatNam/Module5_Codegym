@@ -12,6 +12,8 @@ import { CustomerListComponent } from './component/customer/customer-list/custom
 import { HttpClientModule } from '@angular/common/http';
 import { CustomerCreateComponent } from './component/customer/customer-create/customer-create.component';
 import { CustomerEditComponent } from './component/customer/customer-edit/customer-edit.component';
+import { ContractListComponent } from './component/contract/contract-list/contract-list.component';
+import { ContractCreateComponent } from './component/contract/contract-create/contract-create.component';
 
 @NgModule({
 
@@ -24,7 +26,9 @@ import { CustomerEditComponent } from './component/customer/customer-edit/custom
     FacilityEditComponent,
     CustomerListComponent,
     CustomerCreateComponent,
-    CustomerEditComponent
+    CustomerEditComponent,
+    ContractListComponent,
+    ContractCreateComponent
   ],
   imports: [
     BrowserModule,
