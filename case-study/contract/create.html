@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Contract List</title>
@@ -31,9 +31,9 @@
         <td>
             <select id="employee-id">
                 <option value="0" disabled>Select Employee</option>
-                <option th:each="employee:${employeeList}"
-                        th:value="${employee.id}"
-                        th:text="${employee.name}"></option>
+                <option>ABC</option>
+                <option>ABC</option>
+                <option>ABC</option>
             </select>
         </td>
     </tr>
@@ -42,9 +42,7 @@
         <td>
             <select id="customer-id">
                 <option value="0" disabled>Select Customer</option>
-                <option th:each="customer: ${customerList}"
-                        th:value="${customer.id}"
-                        th:text="${customer.name}"></option>
+                <option>ABC</option>
             </select>
         </td>
     </tr>
@@ -53,10 +51,10 @@
         <td>
             <select id="facility-id">
                 <option value="0" disabled>Select Facility</option>
-                <option th:each="facility : ${facilityList}"
-                        th:value="${facility.id}"
-                        th:text="${facility.name}"
-                        th:data-cost="${facility.cost}"></option>
+                <option>ABC</option>
+                <option>ABC</option>
+                <option>ABC</option>
+                <option>ABC</option>
             </select>
         </td>
     </tr>
@@ -72,13 +70,9 @@
         </td>
     </tr>
     <table class="table table-stripped" style="display: none" id="select-attach-facility">\
-        <tr th:each="attachFacility:${attachFacilityList}">
+        <tr>
             <td>
-                <input type="checkbox" class="checkbox-attach-facility"
-                       th:value="${attachFacility.id}"
-                       th:text="' '+${attachFacility.name}"
-                       th:data-cost="${attachFacility.cost}"
-                >
+                <input type="checkbox" class="checkbox-attach-facility">
             </td>
             <td>
                 Total: <input class="quantity-attach-facility" value="0" type="number">
