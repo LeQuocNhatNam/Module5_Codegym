@@ -1,0 +1,42 @@
+<a routerLink="/product/list">Back to product list</a>
+<ul>
+  <li *ngFor="let product of products">
+    <a routerLink="/product/edit/{{product.id}}">{{product.name}}</a>
+  </li>
+</ul>
+<p>{{message}}</p>
+<form [formGroup]="productEdit" (ngSubmit)="onEdit()">
+  <h3>Product Information</h3>
+  <table>
+    <tr>
+      <th>Id</th>
+      <td>
+        <input type="number" formControlName="id">
+      </td>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <td>
+        <input type="text" formControlName="name">
+      </td>
+    </tr>
+    <tr>
+      <th>Price</th>
+      <td>
+        <input type="number" formControlName="price">
+      </td>
+    </tr>
+    <tr>
+      <th>Description</th>
+      <td>
+        <input type="text" formControlName="description">
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button>Edit</button>
+      </td>
+    </tr>
+  </table>
+</form>
