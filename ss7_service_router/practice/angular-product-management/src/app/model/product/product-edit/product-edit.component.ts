@@ -3,6 +3,8 @@ import {Product} from "../../product";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ProductService} from "../../../service/product.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
+import {CategoryService} from "../../../service/category.service";
+import {Category} from "../../category/category";
 
 @Component({
   selector: 'app-product-edit',
@@ -10,41 +12,50 @@ import {ActivatedRoute, ParamMap, Router} from "@angular/router";
   styleUrls: ['./product-edit.component.css']
 })
 export class ProductEditComponent implements OnInit {
-  message: string = '';
-  check: boolean;
-  product: Product = null;
-  productEdit: FormGroup;
+  product: Product;
+  productEditForm: FormGroup;
   products: Product[] = [];
+  categories: Category[] = [];
   private id: any;
 
   constructor(private productService: ProductService,
               private activatedRoute: ActivatedRoute,
-              private router: Router) {
+              private router: Router,
+              private categoryService: CategoryService) {
   }
 
   ngOnInit(): void {
-    this.getAll();
+    this.getCategoryList();
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
-      this.product = this.productService.getDetail(this.id);
-      this.productEdit = new FormGroup({
-        id: new FormControl(this.product.id, Validators.required),
-        name: new FormControl(this.product.name, Validators.required),
-        price: new FormControl(this.product.price, Validators.required),
-        description: new FormControl(this.product.description, Validators.required)
-      })
+      this.getProductDetail(this.id);
+    });
+
+  }
+
+  onEdit() {
+    this.productService.updateById(this.id, this.productEditForm.value).subscribe(item => {
+      this.router.navigateByUrl("/product/list");
     });
   }
 
-  onEdit(){
-    this.productService.updateById(this.id,this.productEdit.value);
-    this.productEdit.reset();
-    this.message = "Successfully";
-    this.router.navigateByUrl("/product/list")
+  getCategoryList() {
+    this.categoryService.getAll().subscribe(item => {
+      this.categories = item;
+    });
   }
 
-  getAll() {
-    this.products = this.productService.getAll();
+  getProductDetail(id) {
+    this.productService.getProductById(id).subscribe(item => {
+      this.productEditForm = new FormGroup({
+        name: new FormControl(item.name, Validators.required),
+        price: new FormControl(item.price, Validators.required),
+        description: new FormControl(item.description, Validators.required),
+        category: new FormControl(this.categories.find(c => c.id === item.category.id), Validators.required)
+      })
+    })
   }
-
+  // compareCategory(item1,item2){
+  //   return item1 && item2 && item1.id === item2.id;
+  // }
 }

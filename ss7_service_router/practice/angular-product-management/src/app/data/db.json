@@ -1,0 +1,34 @@
+{
+  "category": [
+    {
+      "id": 1,
+      "name": "ABC"
+    },
+    {
+      "id": 2,
+      "name": "DEF"
+    }
+  ],
+  "products": [
+    {
+      "name": "IPhone 1222222",
+      "price": 2400000,
+      "description": "Newwwww",
+      "category": {
+        "id": 1,
+        "name": "ABC"
+      },
+      "id": 1
+    },
+    {
+      "name": "iPhone XXXX",
+      "price": 968000,
+      "description": "97%",
+      "category": {
+        "id": 2,
+        "name": "DEF"
+      },
+      "id": 3
+    }
+  ]
+}

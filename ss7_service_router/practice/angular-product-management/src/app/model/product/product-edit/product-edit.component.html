@@ -4,39 +4,33 @@
     <a routerLink="/product/edit/{{product.id}}">{{product.name}}</a>
   </li>
 </ul>
-<p>{{message}}</p>
-<form [formGroup]="productEdit" (ngSubmit)="onEdit()">
-  <h3>Product Information</h3>
-  <table>
-    <tr>
-      <th>Id</th>
-      <td>
-        <input type="number" formControlName="id">
-      </td>
-    </tr>
-    <tr>
-      <th>Name</th>
-      <td>
-        <input type="text" formControlName="name">
-      </td>
-    </tr>
-    <tr>
-      <th>Price</th>
-      <td>
-        <input type="number" formControlName="price">
-      </td>
-    </tr>
-    <tr>
-      <th>Description</th>
-      <td>
-        <input type="text" formControlName="description">
-      </td>
-    </tr>
-    <tr>
-      <td></td>
-      <td>
-        <button>Edit</button>
-      </td>
-    </tr>
-  </table>
+
+<h1 style="text-align: center">Edit Product</h1>
+<form *ngIf="productEditForm" [formGroup]="productEditForm" (ngSubmit)="onEdit()">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text"
+           class="form-control"
+           formControlName="name" name="" id="name" aria-describedby="helpId" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input type="text"
+           class="form-control"
+           formControlName="price" id="price" aria-describedby="helpId" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <input type="text"
+           class="form-control"
+           formControlName="description" id="description" aria-describedby="helpId" placeholder="">
+  </div>
+  <div>
+    <label for="category">Category</label>
+    <select formControlName="category" id="category">
+      <option [ngValue]="c" *ngFor="let c of categories">{{c.name}}</option>
+    </select>
+  </div>
+  <button class="btn btn-primary" [disabled]="productEditForm.invalid">Edit</button>
+
 </form>

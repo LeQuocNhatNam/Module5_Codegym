@@ -4,6 +4,7 @@ import {ProductListComponent} from "./model/product/product-list/product-list.co
 import {ProductCreateComponent} from "./model/product/product-create/product-create.component";
 import {ProductEditComponent} from "./model/product/product-edit/product-edit.component";
 import {ProductDeleteComponent} from "./model/product/product-delete/product-delete.component";
+import {CategoryListComponent} from "./category/category-list/category-list.component";
 
 
 const routes: Routes = [{
@@ -19,6 +20,10 @@ const routes: Routes = [{
   {
     path: 'product/delete/:id',
     component: ProductDeleteComponent
+  },
+  {
+    path: 'category/list',
+    component: CategoryListComponent
   }];
 
 @NgModule({
