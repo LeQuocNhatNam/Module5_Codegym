@@ -10,27 +10,14 @@
       <th>Start Date</th>
       <th>End Date</th>
       <th>Deposit</th>
-      <th>Total cost</th>
-      <th>Attach Facility</th>
     </tr>
-    <tr>
-      <td>ABC</td>
-      <td>ABC</td>
-      <td>ABC</td>
-      <td>ABC</td>
-      <td>ABC</td>
-      <td>ABC</td>
-      <td>ABC</td>
-      <td>ABC</td>
-      <td>
-        <button
-          class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add-contract-detail">+
-        </button>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                data-bs-target="#attach-facility-list">Attach
-          Facility
-        </button>
-      </td>
+    <tr *ngFor="let contract of contracts, index as i">
+      <td>{{i+1}}</td>
+      <td>{{contract.facility.name}}</td>
+      <td>{{contract.customer.name}}</td>
+      <td>{{contract.startDate}}</td>
+      <td>{{contract.endDate}}</td>
+      <td>{{contract.deposit}}</td>
     </tr>
   </table>
   <div>
