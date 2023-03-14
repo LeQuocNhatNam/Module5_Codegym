@@ -1,0 +1,75 @@
+<h2>Registration Form</h2>
+<form [formGroup]="registerForm">
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input formControlName="email" type="text" id="email" class="form-control" placeholder="">
+    <div *ngIf="getEmail().invalid && (getEmail().dirty|| getEmail().untouched)">
+      <div [hidden]="!getEmail().errors.required && !getEmail().errors.email">
+        <p style="color: red">must be filled</p>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input formControlName="password"
+           type="text"
+           class="form-control" name="" id="password" aria-describedby="helpId" placeholder="">
+  </div>
+  <p *ngIf="registerForm.controls.password.touched && registerForm.controls.password?.errors?.required">must be
+    filled</p>
+  <p *ngIf="registerForm.controls.password.touched && registerForm.controls.password?.errors?.minlength">At least 6
+    characters</p>
+  <div class="form-group">
+    <label for="confirmPassword">Confirm Password</label>
+    <input formControlName="confirmPassword"
+           type="text"
+           class="form-control" name="" id="confirmPassword" aria-describedby="helpId" placeholder="">
+  </div>
+  <p style="color: blue"
+     *ngIf="registerForm.controls.confirmPassword.touched && registerForm.controls.confirmPassword?.value == registerForm.controls.password.value">
+    Valid</p>
+  <p style="color: red"
+     *ngIf="registerForm.controls.confirmPassword.touched && registerForm.controls.confirmPassword?.value != registerForm.controls.password.value">
+    InValid</p>
+
+  <div class="form-group">
+    <label for="country">Country</label>
+    <select formControlName="country" id="country">
+      <option *ngFor="let country of countryList" [ngValue]="country.id">{{country.name}}</option>
+    </select>
+  </div>
+  <p style="color: red"
+     *ngIf="registerForm.controls.country.touched && registerForm.controls.country?.errors?.nullError">Must be
+    filled</p>
+
+  <div class="form-group">
+    <label for="age">Age</label>
+    <input formControlName="age"
+           type="number"
+           class="form-control" name="" id="age" aria-describedby="helpId" placeholder="">
+  </div>
+  <p *ngIf="registerForm.controls.age.touched && registerForm.controls.age?.errors?.required">Must be filled</p>
+  <p *ngIf="registerForm.controls.age.touched && registerForm.controls.age?.errors?.min">At least 18 years old</p>
+
+  <div class="form-check">
+    <label class="form-check-label">
+      <input type="radio" formControlName="gender" class="form-check-input" value="checkedValue">Male</label>
+  </div>
+  <div class="form-check">
+    <label class="form-check-label">
+      <input type="radio" class="form-check-input" formControlName="gender" >
+      Female
+    </label>
+  </div>
+  <p *ngIf="registerForm.controls.gender.touched  && registerForm.controls.gender?.errors?.nullError" class="text-danger">Bạn không được để trống</p>
+  <div class="form-group">
+    <label for="phone">Phone Number</label>
+    <input formControlName="phone"
+           type="text"
+           class="form-control" name="" id="phone" aria-describedby="helpId" placeholder="">
+  </div>
+  <p *ngIf="registerForm.controls.phone.touched && registerForm.controls.phone?.errors?.pattern">
+    Bạn phải nhập bắt buộc và phải có định dạng bao gồm: bắt đầu với +84, và theo sau là 9 đến 10 chữ số
+  </p>
+  <button [disabled]="registerForm.invalid" class="btn btn-primary">Register</button>
+</form>
