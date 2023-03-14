@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {ProductService} from "../../../service/product.service";
+import {ProductService} from "../../service/product.service";
 import {Router} from "@angular/router";
-import {CategoryService} from "../../../service/category.service";
-import {Category} from "../../category/category";
+import {CategoryService} from "../../service/category.service";
+import {Category} from "../../model/category/category";
 import {installTempPackage} from "@angular/cli/tasks/install-package";
 
 @Component({

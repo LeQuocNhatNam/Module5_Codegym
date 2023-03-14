@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {ProductListComponent} from "./model/product/product-list/product-list.component";
-import {ProductCreateComponent} from "./model/product/product-create/product-create.component";
-import {ProductEditComponent} from "./model/product/product-edit/product-edit.component";
-import {ProductDeleteComponent} from "./model/product/product-delete/product-delete.component";
+import {ProductListComponent} from "./product/product-list/product-list.component";
+import {ProductCreateComponent} from "./product/product-create/product-create.component";
+import {ProductEditComponent} from "./product/product-edit/product-edit.component";
+import {ProductDeleteComponent} from "./product/product-delete/product-delete.component";
 import {CategoryListComponent} from "./category/category-list/category-list.component";
 
 
