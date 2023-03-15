@@ -8,7 +8,7 @@ import {Customer} from "../model/customer/customer";
   providedIn: 'root'
 })
 export class CustomerService {
-  URL_CUSTOMER = "http://localhost:8080/api/customer";
+  URL_CUSTOMER = "http://localhost:3000/customers";
 
   constructor(private httpClient: HttpClient) {
   }
@@ -16,4 +16,17 @@ export class CustomerService {
   getAll(): Observable<Customer[]> {
     return this.httpClient.get<Customer[]>(this.URL_CUSTOMER);
   }
+
+  saveCustomer(customer: Customer): Observable<Customer> {
+    return this.httpClient.post<Customer>(this.URL_CUSTOMER, customer);
+  }
+
+  editCustomer(id: string, customer: Customer): Observable<Customer> {
+    return this.httpClient.patch<Customer>(this.URL_CUSTOMER + "/" + id, customer);
+  }
+
+  findCustomerById(id: string): Observable<Customer> {
+    return this.httpClient.get<Customer>(this.URL_CUSTOMER + "/" + id);
+  }
+
 }

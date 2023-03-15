@@ -7,7 +7,7 @@ import {CustomerType} from "../model/customer/customer-type";
   providedIn: 'root'
 })
 export class CustomerTypeService {
-  URL_CUSTOMER_TYPE="http://localhost:8080/api/customer-type";
+  URL_CUSTOMER_TYPE="http://localhost:3000/customerTypes";
   constructor(private httpClient:HttpClient) { }
 
   getAll():Observable<CustomerType[]>{

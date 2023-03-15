@@ -1,4 +1,5 @@
 <h2 style="text-align: center;">Customer List</h2>
+<a class="btn btn-primary" routerLink="/customer/create">CREATE NEW CUSTOMER</a>
 <table class="table table-stripped">
   <tr>
     <th>#</th>
@@ -15,7 +16,8 @@
     <td>{{i + 1}}</td>
     <td>{{c.name}}</td>
     <td>{{c.dateOfBirth}}</td>
-    <td>{{c.gender}}</td>
+    <td *ngIf="c.gender">Male</td>
+    <td *ngIf="!c.gender">Female</td>
     <td>{{c.email}}</td>
     <td>{{c.phoneNumber}}</td>
     <td>{{c.customerType.name}}</td>

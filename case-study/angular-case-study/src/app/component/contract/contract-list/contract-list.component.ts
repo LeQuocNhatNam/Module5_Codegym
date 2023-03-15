@@ -12,28 +12,28 @@ export class ContractListComponent implements OnInit {
     deposit: 0,
     startDate: '2020-12-18',
     endDate: '2020-12-19',
-    customer: {id: 1, name: 'Nguyễn Văn A'},
+    customer: {id: 'KH-1123', name: 'Nguyễn Văn A'},
     facility: {id: 3, name: 'House'}
   },{
     id: 2,
     deposit: 0,
     startDate: '2020-12-18',
     endDate: '2020-12-19',
-    customer: {id: 1, name: 'Nguyễn Văn A'},
+    customer: {id: 'KH-1124', name: 'Nguyễn Văn A'},
     facility: {id: 3, name: 'House'}
   },{
     id: 3,
     deposit: 0,
     startDate: '2020-12-18',
     endDate: '2020-12-19',
-    customer: {id: 1, name: 'Nguyễn Văn A'},
+    customer: {id: 'KH-1125', name: 'Nguyễn Văn A'},
     facility: {id: 3, name: 'House'}
   },{
     id: 4,
     deposit: 200,
     startDate: '2020-12-18',
     endDate: '2020-12-19',
-    customer: {id: 1, name: 'Nguyễn Văn A'},
+    customer: {id: 'KH-1126', name: 'Nguyễn Văn A'},
     facility: {id: 3, name: 'House'}
   },];
 

@@ -1,72 +1,80 @@
-<h2 style="text-align:center">Edit Customer</h2>
+<h2 style="text-align:center">EDIT CUSTOMER</h2>
 <div>
-  <form method="post">
-    <table class="table table-stripped">
-      <tr>
-        <td>Name</td>
-        <td>
-          <input type="text">
-          <span></span>
-        </td>
-      <tr>
-        <td>Date Of Birth</td>
-        <td>
-          <input type="date">
-          <span></span>
-        </td>
-      </tr>
-      <tr>
-        <td>Customer Type</td>
-        <td>
-          <select>
-            <div>
-              <option>ABC</option>
-              <option>ABC</option>
-              <option>ABC</option>
-            </div>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td>Gender</td>
-        <td>
-          <input type="radio" name="gender">Male
-          <input type="radio" name="gender">Female
-        </td>
-      </tr>
-      <tr>
-        <td>ID Card</td>
-        <td>
-          <input type="text">
-          <span></span>
-        </td>
-      </tr>
-      <tr>
-        <td>Phone Number</td>
-        <td>
-          <input type="text">
-          <span></span>
-        </td>
-      </tr>
-      <tr>
-        <td>Email</td>
-        <td>
-          <input type="text">
-          <span></span>
-        </td>
-      </tr>
-      <tr>
-        <td>Address</td>
-        <td>
-          <input type="text">
-        </td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>
-          <button class="btn btn-primary">Save</button>
-        </td>
-      </tr>
-    </table>
+  <form [formGroup]="customerForm" (ngSubmit)="editCustomer()">
+    <div class="form-group">
+      <label for="id">Customer ID: </label>
+      <input type="text"
+             class="form-control" formControlName="id" id="id">
+      <p *ngIf="customerForm.controls.id?.touched && customerForm.controls.id?.errors?.required" style="color: red">
+        *required</p>
+      <p *ngIf="customerForm.controls.id?.touched && customerForm.controls.id?.errors?.pattern" style="color: red">
+        *Pattern KH-XXXX (digits)</p>
+    </div>
+    <div class="form-group">
+      <label for="name">Customer name: </label>
+      <input type="text"
+             class="form-control" formControlName="name" id="name">
+      <p *ngIf="customerForm.controls.name?.touched && customerForm.controls.name?.errors?.required"
+         style="color: red">
+        *required</p>
+    </div>
+    <div class="form-group">
+      <label for="dateOfBirth">Date Of Birth: </label>
+      <input type="date"
+             class="form-control" formControlName="dateOfBirth" id="dateOfBirth">
+    </div>
+    <div class="mb-3">
+      <div class="form-check">
+        <label class="form-check-label">
+          <input formControlName="gender" type="radio" class="form-check-input" name="" value="checkedValue"
+                 [value]="true">
+          Male
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input formControlName="gender" type="radio" class="form-check-input" name="" value="checkedValue"
+                 [value]="false">
+          Female
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="idCard">Id Card:</label>
+      <input type="text"
+             class="form-control" formControlName="idCard" id="idCard">
+      <p *ngIf="customerForm.controls.idCard?.touched && customerForm.controls.idCard?.errors?.pattern" style="color: red">*9 or 12 digits</p>
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="text"
+             class="form-control" formControlName="phoneNumber" id="phoneNumber">
+      <p *ngIf="customerForm.controls.phoneNumber?.touched && customerForm.controls.phoneNumber?.errors?.pattern" style="color: red">*090XXX or 091 or (84)+90XXX + (84)+091XXX (7 digits X)</p>
+      <p *ngIf="customerForm.controls.phoneNumber?.touched && customerForm.controls.phoneNumber?.errors?.required" style="color: red">*required</p>
+    </div>
+    <div class="form-group">
+      <label for="email">Email: </label>
+      <input type="text"
+             class="form-control" formControlName="email" id="email">
+      <p *ngIf="customerForm.controls.email?.touched && customerForm.controls.email?.errors?.email" style="color: red">*required to be email pattern</p>
+      <p *ngIf="customerForm.controls.email?.touched && customerForm.controls.email?.errors?.required" style="color: red">*required</p>
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address: </label>
+      <input type="text"
+             class="form-control" formControlName="address" id="address">
+      <p *ngIf="customerForm.controls.address?.touched && customerForm.controls.address?.errors?.required" style="color: red">*required</p>
+    </div>
+
+
+    <div class="form-group">
+      <label for="customerType">Customer Type:</label>
+      <select class="form-control" formControlName="customerType" id="customerType">
+        <option [ngValue]="customerType" *ngFor="let customerType of customerTypes">{{customerType.name}}</option>
+      </select>
+    </div>
+    <button [disabled]="customerForm.invalid" type="button" class="btn btn-primary">Save</button>
   </form>
 </div>
