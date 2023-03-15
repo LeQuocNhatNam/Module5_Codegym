@@ -29,4 +29,7 @@ export class CustomerService {
     return this.httpClient.get<Customer>(this.URL_CUSTOMER + "/" + id);
   }
 
+  deleteCustomer(id:string): Observable<Customer>{
+    return this.httpClient.delete<Customer>(this.URL_CUSTOMER + "/" + id);
+  }
 }

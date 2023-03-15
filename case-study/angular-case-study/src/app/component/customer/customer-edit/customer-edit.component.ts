@@ -35,7 +35,7 @@ export class CustomerEditComponent implements OnInit {
         phoneNumber: new FormControl(item.phoneNumber, [Validators.required, Validators.pattern('^09[01]\\d{7}$|^\\(84\\)\\+9[01]\\d{7}$')]),
         email: new FormControl(item.email, Validators.email),
         address: new FormControl(item.address, Validators.required),
-        customerType: new FormControl(this.customerTypes.find(c => c.id === item.customerType.id))
+        customerType: new FormControl(this.customerTypes.filter(customer => customer.id == item.customerType.id)[0])
       })
     });
 

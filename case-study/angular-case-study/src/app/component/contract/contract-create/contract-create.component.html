@@ -1,40 +1,55 @@
 <h2 style="text-align: center;">CREATE NEW CONTRACT</h2>
+<form *ngIf="contractForm" [formGroup]="contractForm">
+  <div class="form-group">
+    <label for="Deposit">Deposit:</label>
+    <input formControlName="deposit" type="text"
+           class="form-control" name="" id="Deposit" aria-describedby="helpId" placeholder="enter deposit ...">
+    <p style="color:red;"
+       *ngIf="contractForm.controls.deposit?.touched && contractForm.controls.deposit?.errors?.required">*required</p>
+    <p style="color:red;"
+       *ngIf="contractForm.controls.deposit?.touched && contractForm.controls.deposit?.errors?.min">*can not be negative</p>
+  </div>
 
-<div class="form-group">
-  <label for="Deposit">Deposit:</label>
-  <input type="text"
-         class="form-control" name="" id="Deposit" aria-describedby="helpId" placeholder="enter deposit ...">
-</div>
-
-<div class="form-group">
-  <label for="startDate">Start Date:</label>
-  <input type="date"
-         class="form-control" name="" id="startDate" aria-describedby="helpId" placeholder="enter start date ...">
-</div>
-
-
-<div class="form-group">
-  <label for="endDate">End Date:</label>
-  <input type="date"
-         class="form-control" name="" id="endDate" aria-describedby="helpId" placeholder="enter End date ...">
-</div>
-
-<div class="form-group">
-  <label for="customer-name">Customer Name:</label>
-  <input type="text"
-         class="form-control" name="" id="customer-name" aria-describedby="helpId" placeholder="enter name ...">
-</div>
-
-<div class="form-group">
-  <label for="faclity-name">Facility Name:</label>
-  <input type="text"
-         class="form-control" name="" id="faclity-name" aria-describedby="helpId" placeholder="enter name ...">
-</div>
-
-<a href="#" class="btn btn-secondary">Back</a>
-<button type="submit" class="btn btn-primary btn-lg" style="margin-left: 40px">Create</button>
+  <div class="form-group">
+    <label for="startDate">Start Date:</label>
+    <input type="date" formControlName="startDate"
+           class="form-control" name="" id="startDate" aria-describedby="helpId" placeholder="enter start date ...">
+    <p style="color:red;"
+       *ngIf="contractForm.controls.startDate?.touched && contractForm.controls.startDate?.errors?.required">
+      *required</p>
+  </div>
 
 
+  <div class="form-group">
+    <label for="endDate">End Date:</label>
+    <input type="date" formControlName="endDate"
+           class="form-control" name="" id="endDate" aria-describedby="helpId" placeholder="enter End date ...">
+    <p style="color:red;"
+       *ngIf="contractForm.controls.endDate?.touched && contractForm.controls.endDate?.errors?.required">*required</p>
+
+  </div>
+
+
+
+  <div class="form-group">
+    <label for="customer">Customer:</label>
+    <select class="form-control" formControlName="customer" id="customer">
+      <option *ngFor="let customer of customers" [ngValue]="customer">{{customer.name}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="facility">Facility Name:</label>
+    <select class="form-control" formControlName="customer" id="facility">
+      <option *ngFor="let facility of facilities" [ngValue]="facility">{{facility.name}}</option>
+    </select>
+  </div>
+
+
+
+  <a href="#" class="btn btn-secondary">Back</a>
+  <button [disabled]="contractForm.invalid" class="btn btn-primary btn-lg" style="margin-left: 40px">Create</button>
+</form>
 
 
 

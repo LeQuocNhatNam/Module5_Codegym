@@ -12,7 +12,7 @@
       <th>Deposit</th>
     </tr>
     <tr *ngFor="let contract of contracts, index as i">
-      <td>{{i+1}}</td>
+      <td>{{i + 1}}</td>
       <td>{{contract.facility.name}}</td>
       <td>{{contract.customer.name}}</td>
       <td>{{contract.startDate}}</td>
@@ -21,9 +21,8 @@
     </tr>
   </table>
   <div>
-    <button style="margin-left: 43%" type="button" class="btn btn-success" data-bs-toggle="modal"
-            data-bs-target="#modal-add-new-contract">
+    <a style="margin-left: 43%" type="button" class="btn btn-success" routerLink="/contract/create">
       Add New Contract
-    </button>
+    </a>
   </div>
 </div>

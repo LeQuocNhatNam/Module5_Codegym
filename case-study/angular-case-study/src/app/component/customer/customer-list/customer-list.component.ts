@@ -3,6 +3,7 @@ import {Customer} from "../../../model/customer/customer";
 import {CustomerType} from "../../../model/customer/customer-type";
 import {CustomerTypeService} from "../../../service/customer/customer-type-service";
 import {CustomerService} from "../../../service/customer/customer-service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-customer-list',
@@ -13,8 +14,11 @@ export class CustomerListComponent implements OnInit {
   customer: Customer = {};
   customers: Customer[] = [];
   customerTypes: CustomerType[] = [];
+  nameDelete: string;
+  private id: string;
 
-  constructor(private customerService: CustomerService, private customerTypeService: CustomerTypeService) {
+  constructor(private customerService: CustomerService, private customerTypeService: CustomerTypeService,
+              private router: Router) {
   }
 
 
@@ -26,5 +30,16 @@ export class CustomerListComponent implements OnInit {
       this.customerTypes = data;
     })
   }
+
+  deleteCustomer(id: string, name: string) {
+    this.id = id;
+    this.nameDelete = name;
+  }
+
+  onDelete() {
+    this.customerService.deleteCustomer(this.id).subscribe(() => {
+    });
+  }
+
 
 }

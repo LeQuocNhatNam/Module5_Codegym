@@ -1,7 +1,7 @@
 {
   "customers": [
     {
-      "id": "KH-1234",
+      "id": 1,
       "customerType": {
         "id": "1",
         "name": "Diamond"
@@ -13,62 +13,6 @@
       "phoneNumber": "0905703782",
       "email": "lexuanvu289@gmail.com",
       "address": "K02/12 Đinh Tiên Hoàng, Thanh Khê, Đà Nẵng"
-    },
-    {
-      "id": "KH-1235",
-      "customerType": {
-        "id": "2",
-        "name": "Vip"
-      },
-      "name": "Nguyễn Văn Dương",
-      "dateOfBirth": "1994-09-19",
-      "gender": true,
-      "idCard": "201286494",
-      "phoneNumber": "0789123456",
-      "email": "nguyent289@gmail.com",
-      "address": "K14/15 Nguyễn Thị Thập, Thanh Khê, Đà Nẵng"
-    },
-    {
-      "id": "KH-1236",
-      "customerType": {
-        "id": 4,
-        "name": "Silver"
-      },
-      "name": "Nguyễn Thị Hà",
-      "dateOfBirth": "1998-12-02",
-      "gender": false,
-      "idCard": "2017564293",
-      "phoneNumber": "0789555872",
-      "email": "nguyent289@gmail.com",
-      "address": "K14/15 Nguyễn Thị Thập, Thanh Khê, Đà Nẵng"
-    },
-    {
-      "id": "KH-1237",
-      "name": "Hà Văn Tính",
-      "dateOfBirth": "1999-12-28",
-      "gender": true,
-      "idCard": "201946547",
-      "phoneNumber": "0907456123",
-      "email": "avg@gmail.com",
-      "address": "Đà Nẵng",
-      "customerType": {
-        "id": 1,
-        "name": "Diamond"
-      }
-    },
-    {
-      "id": "KH-1238",
-      "name": "Nguyễn Thị Chung",
-      "dateOfBirth": "2002-01-28",
-      "gender": false,
-      "idCard": "200048512",
-      "phoneNumber": "0904586754",
-      "email": "gnuyen@gmail.com",
-      "address": "Hà Nội",
-      "customerType": {
-        "id": 2,
-        "name": "Vip"
-      }
     }
   ],
   "customerTypes": [
@@ -313,27 +257,6 @@
       },
       "url": "https://www.furama.com/images/ibe_Safari_Suite.jpg",
       "id": 10
-    },
-    {
-      "id": 11,
-      "name": "aaaaaaaaaaa",
-      "area": "23",
-      "cost": 232333,
-      "maxPeople": 2,
-      "rentType": {
-        "id": 2,
-        "name": "month"
-      },
-      "facilityType": {
-        "id": 2,
-        "name": "house"
-      },
-      "standardRoom": "aaaaaa",
-      "otherConvenience": "aaaaaaaaa",
-      "poolArea": 23,
-      "numberOfFloors": 2,
-      "freeFacility": "aaaaaaa",
-      "url": "aaaaaaaaaaaaaaaaaaaaaa"
     }
   ],
   "rentTypes": [
@@ -352,6 +275,64 @@
     {
       "id": 4,
       "name": "hour"
+    }
+  ],
+  "contracts": [
+    {
+      "id": 1,
+      "deposit": 0,
+      "startDate": "2020-12-18",
+      "endDate": "2020-12-19",
+      "customer": {
+        "id": "KH-1123",
+        "name": "Nguyễn Văn A"
+      },
+      "facility": {
+        "id": 3,
+        "name": "House"
+      }
+    },
+    {
+      "id": 2,
+      "deposit": 0,
+      "startDate": "2020-12-18",
+      "endDate": "2020-12-19",
+      "customer": {
+        "id": "KH-1124",
+        "name": "Nguyễn Văn A"
+      },
+      "facility": {
+        "id": 3,
+        "name": "House"
+      }
+    },
+    {
+      "id": 3,
+      "deposit": 0,
+      "startDate": "2020-12-18",
+      "endDate": "2020-12-19",
+      "customer": {
+        "id": "KH-1125",
+        "name": "Nguyễn Văn A"
+      },
+      "facility": {
+        "id": 3,
+        "name": "House"
+      }
+    },
+    {
+      "id": 4,
+      "deposit": 200,
+      "startDate": "2020-12-18",
+      "endDate": "2020-12-19",
+      "customer": {
+        "id": "KH-1126",
+        "name": "Nguyễn Văn A"
+      },
+      "facility": {
+        "id": 3,
+        "name": "House"
+      }
     }
   ]
 }

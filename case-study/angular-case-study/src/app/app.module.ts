@@ -29,7 +29,7 @@ import {ReactiveFormsModule} from "@angular/forms";
     CustomerCreateComponent,
     CustomerEditComponent,
     ContractListComponent,
-    ContractCreateComponent
+    ContractCreateComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,7 +7,7 @@ import {Contract} from "../../model/contract/contract";
   providedIn: 'root'
 })
 export class ContractService {
-  URL_CONTRACT = "";
+  URL_CONTRACT = "http://localhost:3000/contracts";
   constructor(private httpClient: HttpClient) {
   }
 
