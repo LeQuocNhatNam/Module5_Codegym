@@ -11,6 +11,7 @@ import {ProductDeleteComponent} from './product/product-delete/product-delete.co
 
 import { CategoryListComponent } from './category/category-list/category-list.component';
 import {HttpClientModule} from "@angular/common/http";
+import {SharedModule} from "./shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -19,13 +20,14 @@ import {HttpClientModule} from "@angular/common/http";
     ProductListComponent,
     ProductEditComponent,
     ProductDeleteComponent,
-    CategoryListComponent
+    CategoryListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
