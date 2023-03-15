@@ -5,6 +5,8 @@ import {CustomerListComponent} from "./component/customer/customer-list/customer
 import {CustomerEditComponent} from "./component/customer/customer-edit/customer-edit.component";
 import {ContractListComponent} from "./component/contract/contract-list/contract-list.component";
 import {FacilityListComponent} from "./component/facility/facility-list/facility-list.component";
+import {FacilityEditComponent} from "./component/facility/facility-edit/facility-edit.component";
+import {FacilityCreateComponent} from "./component/facility/facility-create/facility-create.component";
 
 
 const routes: Routes = [{
@@ -26,6 +28,14 @@ const routes: Routes = [{
   {
     path: 'facility',
     component: FacilityListComponent
+  },
+  {
+    path: 'facility/create',
+    component: FacilityCreateComponent
+  },
+  {
+    path: 'facility/edit/:id',
+    component: FacilityEditComponent
   }
 ];
 

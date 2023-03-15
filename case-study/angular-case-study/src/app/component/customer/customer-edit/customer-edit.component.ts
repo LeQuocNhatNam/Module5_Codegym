@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {CustomerTypeService} from "../../../service/customer-type-service";
-import {CustomerService} from "../../../service/customer-service";
+import {CustomerTypeService} from "../../../service/customer/customer-type-service";
+import {CustomerService} from "../../../service/customer/customer-service";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {CustomerType} from "../../../model/customer/customer-type";
 import {Customer} from "../../../model/customer/customer";

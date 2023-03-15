@@ -13,7 +13,7 @@ export class ContractListComponent implements OnInit {
     startDate: '2020-12-18',
     endDate: '2020-12-19',
     customer: {id: 'KH-1123', name: 'Nguyễn Văn A'},
-    facility: {id: 3, name: 'House'}
+    facility: {id: 3, name: 'House',}
   },{
     id: 2,
     deposit: 0,
