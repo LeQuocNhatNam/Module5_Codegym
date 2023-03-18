@@ -1,5 +1,8 @@
 <h2 style="text-align: center;">Customer List</h2>
 <a class="btn btn-primary" routerLink="/customer/create">CREATE NEW CUSTOMER</a>
+<input #element type="text" placeholder="enter name">
+<button (click)="searchByName(element.value)" class="btn btn-primary btn-sm">Search</button>
+<button class="btn btn-secondary" (click)="sortDescById()">Search By ID</button>
 <table class="table table-stripped">
   <tr>
     <th>#</th>
@@ -12,8 +15,8 @@
     <th>Edit</th>
     <th>Delete</th>
   </tr>
-  <tr *ngFor="let c of customers, index as i">
-    <td>{{i + 1}}</td>
+  <tr *ngFor="let c of customers | paginate: {itemsPerPage:2, currentPage:p}">
+    <td>{{c.id}}</td>
     <td>{{c.name}}</td>
     <td>{{c.dateOfBirth}}</td>
     <td *ngIf="c.gender">Male</td>
@@ -26,13 +29,14 @@
     </td>
     <td>
       <!-- Button trigger modal -->
-      <button (click)="deleteCustomer(c.id,c.name)" type="button" class="text-primary btn btn-danger btn-lg" data-toggle="modal" data-target="#modelId">
+      <button (click)="deleteCustomer(c.id,c.name)" type="button" class="text-primary btn btn-danger btn-lg"
+              data-toggle="modal" data-target="#modelId">
         Delete
       </button>
     </td>
   </tr>
 </table>
-
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
 <!-- Modal -->
 <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
      aria-hidden="true">
@@ -49,7 +53,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-danger" (click)="onDelete()">Delete</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="onDelete()">Delete</button>
       </div>
     </div>
   </div>

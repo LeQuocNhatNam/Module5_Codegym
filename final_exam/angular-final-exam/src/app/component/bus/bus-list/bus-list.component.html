@@ -1,0 +1,71 @@
+<h1 style="text-align: center;">Buses List</h1>
+<a routerLink="/buses/create" class="btn btn-primary">ADD NEW BUSES</a>
+
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Code</th>
+    <th>BusType</th>
+    <th>Name</th>
+    <th>Departure</th>
+    <th>Destination</th>
+    <th>Phone Number</th>
+    <th>Email</th>
+    <th>Departure Time</th>
+    <th>Arrival time</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let bus of buses">
+    <td>{{bus.code}}</td>
+    <td>{{bus.busType.name}}</td>
+    <td>{{bus.companyName}}</td>
+    <td>{{bus.departure.name}}</td>
+    <td>{{bus.destination.name}}</td>
+    <td>{{bus.phoneNumber}}</td>
+    <td>{{bus.email}}</td>
+    <td>{{bus.departureTime}}</td>
+    <td>{{bus.arrivalTime}}</td>
+    <td>
+      <a routerLink="/buses/edit/{{bus.id}}" class="btn btn-sm btn-primary">Edit</a>
+    </td>
+    <td>
+      <button (click)="getInfoDelete(bus.id,bus.code)" type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+              data-target="#modelId">
+        Delete
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<a *ngIf="!busPage.first" href="/buses/{{busPage.number - 1 }}" class="btn btn-sm btn-primary">Previous</a>
+<span>{{busPage.number + 1}}/{{busPage.totalPages}}</span>
+<a *ngIf="!busPage.last" href="/buses/{{busPage.number + 1}}" class="btn btn-sm btn-primary">Next</a>
+
+<!--<button style="text-align: center" class="btn btn-sm btn-info" type="button" (click)="sortByDepartureTime()">Sort By DepartureTime</button>-->
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Delete Bus</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure to delete {{codeDelete}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button (click)="onDelete()" type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

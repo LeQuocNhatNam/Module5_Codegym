@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {CustomerTypeService} from "../../../service/customer/customer-type-service";
 import {CustomerService} from "../../../service/customer/customer-service";
-import {ActivatedRoute, ParamMap} from "@angular/router";
+import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {CustomerType} from "../../../model/customer/customer-type";
 import {Customer} from "../../../model/customer/customer";
 
@@ -18,7 +18,8 @@ export class CustomerEditComponent implements OnInit {
 
   constructor(private customerTypeService: CustomerTypeService,
               private customerService: CustomerService,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -48,6 +49,9 @@ export class CustomerEditComponent implements OnInit {
   }
 
   editCustomer() {
-    this.customerService.editCustomer(this.id, this.customerForm.value);
+    console.log(this.customerForm.value)
+    this.customerService.editCustomer(this.id, this.customerForm.value).subscribe(() => {
+      this.router.navigateByUrl("customer");
+    });
   }
 }

@@ -1,0 +1,115 @@
+<h1 style="text-align: center;">EDIT BUS</h1>
+<form *ngIf="busForm" [formGroup]="busForm" (ngSubmit)="editBus()">
+  <table class="table">
+    <tr>
+      <th>Code</th>
+      <td>
+        <label>
+          <input disabled formControlName="code" type="text">
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <th>BusType</th>
+      <td>
+        <label>
+          <select formControlName="busType" [ngModel]="">
+            <option *ngFor="let busType of busTypes" [ngValue]="busType">{{busType.name}}</option>
+          </select>
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <td>
+        <label>
+          <input formControlName="companyName" type="text">
+          <p style="color: red"
+             *ngIf="busForm.controls.companyName?.touched && busForm.controls.companyName?.errors?.required">
+            *required</p>
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <th>Departure</th>
+      <td>
+        <label>
+          <select formControlName="departure" [ngModel]="departures[0]">
+            <option *ngFor="let departure of departures" [ngValue]="departure">{{departure.name}}</option>
+          </select>
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <th>Desination</th>
+      <td>
+        <label>
+          <select formControlName="destination" [ngModel]="destinations[0]">
+            <option *ngFor="let destination of destinations" [ngValue]="destination">{{destination.name}}</option>
+          </select>
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <th>Phone Number</th>
+      <td>
+        <label>
+          <input formControlName="phoneNumber" type="text">
+          <p style="color: red"
+             *ngIf="busForm.controls.phoneNumber?.touched && busForm.controls.phoneNumber?.errors?.required">
+            *required</p>
+          <p style="color: red"
+             *ngIf="busForm.controls.phoneNumber?.touched && busForm.controls.phoneNumber?.errors?.pattern">
+            *starts with 090 or 093 or 097 and X(7 digits)</p>
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td>
+        <label>
+          <input formControlName="email" type="text">
+          <p style="color: red" *ngIf="busForm.controls.email?.touched && busForm.controls.email?.errors?.required">
+            *required</p>
+          <p style="color: red" *ngIf="busForm.controls.email?.touched && busForm.controls.email?.errors?.email">
+            *required to be email pattern</p>
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <th>Departure Time</th>
+      <td>
+        <label>
+          <input formControlName="departureTime" type="text">
+          <p style="color: red"
+             *ngIf="busForm.controls.departureTime?.touched && busForm.controls.departureTime?.errors?.required">
+            *required</p>
+          <p style="color: red"
+             *ngIf="busForm.controls.departureTime?.touched && busForm.controls.departureTime?.errors?.pattern">*hh:mm
+            pattern and between 5:00 and 23:00</p>
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <th>Arrival Time</th>
+      <td>
+        <label>
+          <input formControlName="arrivalTime" type="text">
+          <p style="color: red"
+             *ngIf="busForm.controls.arrivalTime?.touched && busForm.controls.arrivalTime?.errors?.required">
+            *required</p>
+          <p style="color: red"
+             *ngIf="busForm.controls.arrivalTime?.touched && busForm.controls.arrivalTime?.errors?.pattern">*hh:mm
+            pattern and between 5:00 and 23:00</p>
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <a routerLink="/buses" class="btn btn-secondary">Back</a>
+        <button [disabled]="busForm.invalid" (click)="editBus()" class="btn btn-primary">Edit</button>
+      </td>
+    </tr>
+  </table>
+</form>

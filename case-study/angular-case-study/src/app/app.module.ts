@@ -15,7 +15,7 @@ import { CustomerEditComponent } from './component/customer/customer-edit/custom
 import { ContractListComponent } from './component/contract/contract-list/contract-list.component';
 import { ContractCreateComponent } from './component/contract/contract-create/contract-create.component';
 import {ReactiveFormsModule} from "@angular/forms";
-
+import {NgxPaginationModule} from "ngx-pagination";
 @NgModule({
 
   declarations: [
@@ -36,6 +36,7 @@ import {ReactiveFormsModule} from "@angular/forms";
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

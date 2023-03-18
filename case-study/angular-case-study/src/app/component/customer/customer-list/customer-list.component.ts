@@ -4,7 +4,7 @@ import {CustomerType} from "../../../model/customer/customer-type";
 import {CustomerTypeService} from "../../../service/customer/customer-type-service";
 import {CustomerService} from "../../../service/customer/customer-service";
 import {Router} from "@angular/router";
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-customer-list',
   templateUrl: './customer-list.component.html',
@@ -16,6 +16,8 @@ export class CustomerListComponent implements OnInit {
   customerTypes: CustomerType[] = [];
   nameDelete: string;
   private id: string;
+  click: boolean = true;
+  p: number = 1;
 
   constructor(private customerService: CustomerService, private customerTypeService: CustomerTypeService,
               private router: Router) {
@@ -38,8 +40,38 @@ export class CustomerListComponent implements OnInit {
 
   onDelete() {
     this.customerService.deleteCustomer(this.id).subscribe(() => {
+      Swal.fire({
+        title: 'Done',
+        text: 'Delete' + this.nameDelete + 'successfully',
+        icon: 'success',
+        confirmButtonText: 'Done'
+      })
+      this.ngOnInit();
     });
   }
 
 
+  searchByName(name: string) {
+    console.log(name)
+    this.customerService.findCustomerByName(name).subscribe(customers => {
+      this.customers = customers;
+    })
+  }
+
+  sortDescById() {
+    if (this.click) {
+      this.customerService.sortById().subscribe(customers => {
+        this.customers = customers
+      });
+    } else {
+      this.customerService.sortByIdAsc().subscribe(customers => {
+        this.customers = customers
+      });
+    }
+    this.click = !this.click;
+  }
+
 }
+
+
+

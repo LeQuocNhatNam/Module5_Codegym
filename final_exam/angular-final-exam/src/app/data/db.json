@@ -1,0 +1,82 @@
+{
+  "buses": [
+    {
+      "id": 1,
+      "code": "1231",
+      "type": "Giường nằm",
+      "companyName": "Mai Linh",
+      "departure": {
+        "id": 1,
+        "name": "Đà Nẵng"
+      },
+      "destination": {
+        "id": 1,
+        "name": "Quảng Trị"
+      },
+      "phoneNumber": "0935845632",
+      "email": "mailinh@gmail.com",
+      "departureTime": "13:19",
+      "arrivalTime": "15:00"
+    },
+    {
+      "id": 2,
+      "code": "1222",
+      "type": "Ghế Ngồi",
+      "companyName": "Hoàng Long",
+      "departure": {
+        "id": 1,
+        "name": "Đà Nẵng"
+      },
+      "destination": {
+        "id": 2,
+        "name": "Quảng Bình"
+      },
+      "phoneNumber": "0935845632",
+      "email": "mailinh@gmail.com",
+      "departureTime": "13:20",
+      "arrivalTime": "15:00"
+    },
+    {
+      "id": 3,
+      "code": "2311",
+      "type": "Ghế Ngồi 1 ",
+      "companyName": "Hòng Long 1",
+      "departure": {
+        "id": 2,
+        "name": "Huế"
+      },
+      "destination": {
+        "id": 2,
+        "name": "Quảng Bình"
+      },
+      "phoneNumber": "0939574122",
+      "email": "hoanglong@gmail.com",
+      "departureTime": "10:15",
+      "arrivalTime": "15:00"
+    }
+  ],
+  "destinations": [
+    {
+      "id": 1,
+      "name": "Quảng Trị"
+    },
+    {
+      "id": 2,
+      "name": "Quảng Bình"
+    },
+    {
+      "id": 3,
+      "name": "Huế"
+    }
+  ],
+  "departures": [
+    {
+      "id": 1,
+      "name": "Đà Nẵng"
+    },
+    {
+      "id": 2,
+      "name": "Huế"
+    }
+  ]
+}

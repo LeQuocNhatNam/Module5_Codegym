@@ -1,7 +1,7 @@
 {
   "customers": [
     {
-      "id": 1,
+      "id": "KH-1234",
       "customerType": {
         "id": "1",
         "name": "Diamond"
@@ -13,6 +13,62 @@
       "phoneNumber": "0905703782",
       "email": "lexuanvu289@gmail.com",
       "address": "K02/12 Đinh Tiên Hoàng, Thanh Khê, Đà Nẵng"
+    },
+    {
+      "id": "KH-1236  ",
+      "customerType": {
+        "id": 1,
+        "name": "Diamond"
+      },
+      "name": "Dương Văn Hào 222",
+      "dateOfBirth": "2000-09-28",
+      "gender": true,
+      "idCard": "201943464",
+      "phoneNumber": "0905703782",
+      "email": "lexuanvu289@gmail.com",
+      "address": "K02/12 Đinh Tiên Hoàng, Thanh Khê, Đà Nẵng"
+    },
+    {
+      "id": "KH-1259",
+      "name": "Name Le 222",
+      "dateOfBirth": "2023-02-22",
+      "gender": false,
+      "idCard": "123424323411",
+      "phoneNumber": "0901111111",
+      "email": "paulnamenglishdanang@gmail.com",
+      "address": "160 Hồ Tùng Mậu, Liên Chiểu",
+      "customerType": {
+        "id": 3,
+        "name": "Normal"
+      }
+    },
+    {
+      "id": "KH-1256",
+      "name": "43f33",
+      "dateOfBirth": "2023-02-28",
+      "gender": false,
+      "idCard": "123424323411",
+      "phoneNumber": "0901111111",
+      "email": "paulnamenglishdanang@gmail.com",
+      "address": "160 Hồ Tùng Mậu, Liên Chiểu",
+      "customerType": {
+        "id": 3,
+        "name": "Normal"
+      }
+    },
+    {
+      "id": "KH-1250",
+      "name": "Lê Quốc Nhật Nam",
+      "dateOfBirth": "2023-03-14",
+      "gender": false,
+      "idCard": "123424323423",
+      "phoneNumber": "0901111111",
+      "email": "paulnamenglishdanang@gmail.com",
+      "address": "160 Hồ Tùng Mậu, Liên Chiểu",
+      "customerType": {
+        "id": 2,
+        "name": "Vip"
+      }
     }
   ],
   "customerTypes": [

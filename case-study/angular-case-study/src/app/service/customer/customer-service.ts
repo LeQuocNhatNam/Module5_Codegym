@@ -18,7 +18,7 @@ export class CustomerService {
   }
 
   saveCustomer(customer: Customer): Observable<Customer> {
-    return this.httpClient.post<Customer>(this.URL_CUSTOMER, customer);
+    return this.httpClient.post<Customer>(this.URL_CUSTOMER, {...customer});
   }
 
   editCustomer(id: string, customer: Customer): Observable<Customer> {
@@ -29,7 +29,19 @@ export class CustomerService {
     return this.httpClient.get<Customer>(this.URL_CUSTOMER + "/" + id);
   }
 
-  deleteCustomer(id:string): Observable<Customer>{
+  deleteCustomer(id: string): Observable<Customer> {
     return this.httpClient.delete<Customer>(this.URL_CUSTOMER + "/" + id);
+  }
+
+  findCustomerByName(name: string): Observable<Customer[]> {
+    return this.httpClient.get<Customer[]>(this.URL_CUSTOMER + "?name_like=" + name);
+  }
+
+  sortById(): Observable<Customer[]> {
+    return this.httpClient.get<Customer[]>(this.URL_CUSTOMER + "?_sort=id&_order=desc")
+  }
+
+  sortByIdAsc(): Observable<Customer[]> {
+    return this.httpClient.get<Customer[]>(this.URL_CUSTOMER + "?_sort=id")
   }
 }
